@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="home" :style="styleBg" @click="changeToggle">
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script lang="js">
+import { Vue } from 'vue-property-decorator';
 
-@Component({
-  components: {
-    HelloWorld,
+export default Vue.extend({
+  data: () => ({
+    toggle: false,
+  }),
+  computed: {
+    styleBg() {
+      if (this.toggle) { return { backgroundColor: '#3C413D' }; }
+      return { backgroundColor: '#37433a' };
+    },
   },
-})
-export default class Home extends Vue {}
+  methods: {
+    changeToggle() {
+      this.toggle = !this.toggle;
+    },
+  },
+});
 </script>
+
+<style lang="stylus">
+.home {
+  min-height :100vh;
+}
+</style>
