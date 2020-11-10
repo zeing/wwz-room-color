@@ -1,4 +1,4 @@
-# test-project
+# test-color-of-room
 
 ## Project setup
 ```
